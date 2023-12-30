@@ -1,0 +1,128 @@
+// import { UserOutlined } from '@ant-design/icons';
+// import { Breadcrumb, Card, Layout, Menu, theme } from 'antd';
+// import React, { useEffect, useState } from 'react';
+// import { Link } from 'react-router-dom';
+// import axios from 'axios';
+
+// const App = (props) => {
+//   const { viewcardId } = props.match.params;
+//   console.log('viewcardId: ', viewcardId);
+//   const [data, setData] = useState('');
+
+//   const {
+//     token: { colorBgContainer },
+//   } = theme.useToken();
+//   const gridStyle = {
+//     width: '25%',
+//     textAlign: 'center',
+//   };
+//   const { Header, Content, Sider } = Layout;
+
+//   const menulist = [
+//     { name: 'settings', path: '/Settings' },
+//     { name: 'charts', path: '/Charts' },
+//     { name: 'contact', path: '/contact' },
+//   ];
+//   const items2 = menulist.map((menu, index) => {
+//     const key = String(index + 1);
+//     return {
+//       key: `icon${key}`,
+//       icon: <UserOutlined />,
+//       label: (
+//         <div>
+//           <Link to={menu.path}>{menu.name}</Link>
+
+//           {/* <Link to="/Charts">Charts</Link> */}
+//         </div>
+//       ),
+//     };
+//   });
+//   const items1 = menulist.map((menu, index) => ({
+//     label: (
+//       <div>
+//         <Link to={menu.path}>{menu.name}</Link>
+
+//         {/* <Link to="/Charts">Charts</Link> */}
+//       </div>
+//     ),
+//   }));
+//   useEffect(() => {
+//     axios
+//       .get(`https://dummyjson.com/products/${viewcardId}`)
+//       .then((response) => {
+//         console.log('response', response);
+//         setData(response.data);
+//       })
+//       .catch((error) => console.log(error));
+//   }, []);
+//   return (
+//     <Layout>
+//       <Header className="header">
+//         <div className="logo" />
+//         <Menu
+//           theme="dark"
+//           mode="horizontal"
+//           defaultSelectedKeys={['2']}
+//           items={items1}
+//         />
+//       </Header>
+//       <Layout>
+//         <Sider
+//           width={200}
+//           style={{
+//             background: colorBgContainer,
+//           }}
+//         >
+//           <Menu
+//             mode="inline"
+//             defaultSelectedKeys={['1']}
+//             defaultOpenKeys={['sub1']}
+//             style={{
+//               height: '100%',
+//               borderRight: 0,
+//             }}
+//             items={items2}
+//           />
+//         </Sider>
+//         <Layout
+//           style={{
+//             padding: '0 24px 24px',
+//           }}
+//         >
+//           <Breadcrumb
+//             style={{
+//               margin: '16px 0',
+//             }}
+//           ></Breadcrumb>
+//           <Content
+//             style={{
+//               padding: 24,
+//               margin: 0,
+//               minHeight: 280,
+//               background: colorBgContainer,
+//             }}
+//           >
+//             <Card>
+//               {Object.entries(data).map((key, value) => {
+//                 // console.log('key', key);
+//                 <Card.Grid style={gridStyle}>
+//                   return (
+//                   <div>
+//                     {/* {key}:value */}
+//                     {/* key:{value} */}
+//                     {key} : {value}
+//                   </div>
+//                   );
+//                 </Card.Grid>;
+//               })}
+//             </Card>
+//           </Content>
+//         </Layout>
+//       </Layout>
+//     </Layout>
+//   );
+// };
+// export default App;
+
+// // https://v5.reactrouter.com/web/example/url-params
+// // https://ui.dev/react-router-v4-url-parameters
